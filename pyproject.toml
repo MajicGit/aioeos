@@ -1,33 +1,29 @@
 [tool.poetry]
-name = "aioeos"
-version = "1.0.2"
+name = "aioeosABI"
+version = "0.1"
 description = "Async library for interacting with EOS.io blockchain"
-authors = ["Maciej Janiszewski <maciej@ulam.io>"]
+authors = ["MajicGit"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://ulam.io/"
-repository = "https://github.com/ulamlabs/aioeos"
+repository = "https://github.com/MajicGit/aioeos"
 documentation = "https://aioeos.readthedocs.io/en/latest/"
 keywords = ["blockchain", "eos", "async", "eosio", "cryptocurrency"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 aiohttp = "^3.3.1"
 base58 = "2.0.0"
 ecdsa = "^0.15"
+antelopy = "^0.1.6"
+pycryptodome= "^3.20.0"
 
 [tool.poetry.dev-dependencies]
-flake8 = "^3.7.9"
-pytest = "^5.4.1"
-sphinx = "^2.4.4"
-sphinx_rtd_theme = "^0.4.3"
-pytest-cov = "^2.8.1"
-mypy = "^0.770"
+pytest = "^7.4.3"
+pytest-cov = "^4.0.0"
 aioresponses = "^0.6.3"
 pytest-aiohttp = "^0.3.0"
 pytest-mock = "^3.0.0"
-sphinx-autodoc-typehints = "^1.10.3"
 
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

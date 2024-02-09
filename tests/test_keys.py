@@ -1,8 +1,9 @@
-from aioeos import EosKey
+from aioeosABI import EosKey
 
 
 def test_eos_key_creating():
     """Checks if we can generate a key and sign something with it"""
+    
     # Both keys should be different
     key1 = EosKey()
     key2 = EosKey()
@@ -21,6 +22,8 @@ def test_eos_key_creating():
 
 
 def test_eos_key_restore():
+    # GitHub actions no longer support RMD160. 
+    
     # known good WIF key pair
     wif_private = '5KJbQhJSyayfUvfpK1d7sPYBRdjGz1EHgeCE8mfrZC1pM4Z9Tto'
     wif_public = 'EOS72kwLAoSdeVjUgKTCJ9cysF2iQVJehmGMjWrJUfbGnxATgYVRf'

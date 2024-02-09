@@ -4,7 +4,7 @@ import inspect
 import struct
 from typing import Any, List, Tuple, Type, Union
 
-from aioeos import types, exceptions
+from aioeosABI import types, exceptions
 
 
 class BaseSerializer(ABC):

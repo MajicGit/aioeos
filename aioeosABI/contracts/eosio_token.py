@@ -1,5 +1,5 @@
 """Helpers for creating actions on eosio.token contract"""
-from aioeos import types
+from aioeosABI import types
 
 
 def transfer(

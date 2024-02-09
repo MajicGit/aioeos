@@ -1,6 +1,6 @@
 import pytest
 
-from aioeos import EosAccount, EosKey
+from aioeosABI import EosAccount, EosKey
 
 
 def test_new_account():

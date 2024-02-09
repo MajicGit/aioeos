@@ -1,4 +1,12 @@
-# aioeos
+# aioeosABI
+Updated version of aioeos to no longer rely on API calls to serialize data. Integrates https://github.com/stuckatsixpm/antelopy to serialize instead.
+Should be usable as a drop-in replacement for the original aioeos.
+
+For Documentation: See the original aioeos Docs. Only difference is that `sign_and_push_transaction` now lets you specify if you want to use a stored ABI or fetch a new one. Also two new helper functions. 
+
+- smart_sign_and_push_transaction: Signs and pushes a transaction using the cached ABI, refetching the ABI if the first try fails.
+
+- push_actions: Pushed out a transaction, trying out various endpoints until one succeeds. 
 
 [![Documentation Status](https://readthedocs.org/projects/aioeos/badge/?version=latest)](http://aioeos.readthedocs.io/en/latest/?badge=latest) [![codecov](https://codecov.io/gh/ulamlabs/aioeos/branch/master/graph/badge.svg)](https://codecov.io/gh/ulamlabs/aioeos) ![Python package](https://github.com/ulamlabs/aioeos/workflows/Python%20package/badge.svg) ![Upload Python Package](https://github.com/ulamlabs/aioeos/workflows/Upload%20Python%20Package/badge.svg)
 
@@ -16,7 +24,7 @@ Async Python library for interacting with EOS.io blockchain.
 
 Library is available on PyPi, you can simply install it using `pip`.
 ```shell
-$ pip install aioeos
+$ pip install aioeosABI
 ```
 
 ## Usage
@@ -24,7 +32,7 @@ $ pip install aioeos
 ### Importing a private key
 
 ```python
-from aioeos import EosAccount
+from aioeosABI import EosAccount
 
 account = EosAccount(private_key='your key')
 ```
@@ -32,8 +40,8 @@ account = EosAccount(private_key='your key')
 ### Transferring funds
 
 ```python
-from aioeos import EosJsonRpc, EosTransaction
-from aioeos.contracts import eosio_token
+from aioeosABI import EosJsonRpc, EosTransaction
+from aioeosABI.contracts import eosio_token
 
 
 rpc = EosJsonRpc(url='http://127.0.0.1:8888')
@@ -57,8 +65,8 @@ await rpc.sign_and_push_transaction(transaction, keys=[account.key])
 ### Creating a new account
 
 ```python
-from aioeos import EosJsonRpc, EosTransaction, EosAuthority
-from aioeos.contracts import eosio
+from aioeosABI import EosJsonRpc, EosTransaction, EosAuthority
+from aioeosABI.contracts import eosio
 
 
 main_account = EosAccount(name='mainaccount1', private_key='private key')

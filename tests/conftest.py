@@ -2,8 +2,8 @@ import random
 
 import pytest
 
-from aioeos import EosAccount, EosJsonRpc, EosTransaction, EosAuthority
-from aioeos.contracts import eosio
+from aioeosABI import EosAccount, EosJsonRpc, EosTransaction, EosAuthority
+from aioeosABI.contracts import eosio
 
 
 @pytest.fixture

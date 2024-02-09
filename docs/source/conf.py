@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'aioeos'
+project = 'aioeosABI'
 copyright = '2020, Maciej Janiszewski'
 author = 'Maciej Janiszewski'
 

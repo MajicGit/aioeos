@@ -1,6 +1,6 @@
-from aioeos import EosAction
-from aioeos.types import EosAuthority
-from aioeos.contracts import eosio, eosio_token
+from aioeosABI import EosAction
+from aioeosABI.types import EosAuthority
+from aioeosABI.contracts import eosio, eosio_token
 
 
 def test_eosio_token_transfer():
