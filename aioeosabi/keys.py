@@ -5,8 +5,8 @@ import secrets
 import base58
 import ecdsa
 
-from aioeos.types import EosKeyWeight
-
+from aioeosabi.types import EosKeyWeight
+from Crypto.Hash import RIPEMD
 
 class EosKey:
     """
@@ -63,7 +63,7 @@ class EosKey:
             first_sha = hashlib.sha256(key).digest()
             return hashlib.sha256(first_sha).digest()[:4]
         elif key_type in ('', 'K1'):
-            r = hashlib.new('rmd160')
+            r = RIPEMD.new()
             r.update(key + key_type.encode('utf-8'))
             return r.digest()[:4]
         else:

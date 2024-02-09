@@ -1,7 +1,7 @@
 from typing import Optional
 
-from aioeos.keys import EosKey
-from aioeos.types import EosPermissionLevel, EosPermissionLevelWeight
+from aioeosabi.keys import EosKey
+from aioeosabi.types import EosPermissionLevel, EosPermissionLevelWeight
 
 
 class EosAccount:

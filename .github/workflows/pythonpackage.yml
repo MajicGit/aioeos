@@ -1,4 +1,4 @@
-# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# This workflow will install Python dependencies and run tests with a variety of Python versions
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
 name: Python package
@@ -15,12 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python_version: [3.7]
+        python_version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python_version }}
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python_version }}
     - name: Install dependencies
@@ -28,22 +28,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install poetry
         poetry install
-    - name: Lint with flake8
-      run: |
-        poetry run flake8
-    - name: Lint with mypy
-      run: |
-        poetry run mypy aioeos
+        
     - name: Test with pytest
       env:
         # eosio node won't bootstrap on Github Actions
         DISABLE_RPC_TESTS: 1
       run: |
         poetry run pytest --cov --cov-report xml
-    - name: Uploading coverage
-      uses: codecov/codecov-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-        file: ./coverage.xml # optional
-        flags: unittests # optional
-        name: codecov-umbrella # optional

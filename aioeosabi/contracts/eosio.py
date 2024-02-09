@@ -1,7 +1,7 @@
 """Helpers for creating actions on eosio contract"""
 from typing import Optional
 
-from aioeos.types import EosAction, EosAuthority
+from aioeosabi.types import EosAction, EosAuthority
 
 
 def newaccount(
