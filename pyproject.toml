@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aioeosabi"
-version = "0.1.1"
+version = "0.1.2"
 description = "Async library for interacting with EOS.io blockchain"
 authors = ["MajicGit"]
 license = "MIT"

@@ -1,7 +1,7 @@
 aiohttp==3.8.0
 base58==2.0.0
 ecdsa==0.15.0
-antelopy
+antelopy==0.2.0
 pycryptodome
 # docs requirements
 sphinx==2.4.4
