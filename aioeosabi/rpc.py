@@ -13,7 +13,7 @@ from antelopy.types.abi import Abi
 import secrets
 import asyncio
 
-abicache = AbiCache(chain_endpoint="")
+abicache = None 
 
 ERROR_NAME_MAP = {
     'exception': exceptions.EosRpcException,
@@ -39,8 +39,11 @@ def mixed_to_dict(payload: Any):
 
 class EosJsonRpc:
     def __init__(self, url):
+        global abicache
         self.URL = url
         self._chain_id = None
+        if abicache is None:
+            abicache = AbiCache(chain_endpoint=url)
 
     async def post(self, endpoint, json={}):
         async with ClientSession() as session:
@@ -63,7 +66,7 @@ class EosJsonRpc:
         if not use_stored or action.account not in abicache._abi_cache:
             # Fetch the ABI first
             await self.async_add_raw_abi(action.account)
-        return {"binargs": abicache.serialize_data(action.account, action.name, action.data)}
+        return {"binargs": abicache.serialize_data(action.account, action.name, mixed_to_dict(action.data))}
 
     async def get_abi(self, account_name: str):
         return await self.post(

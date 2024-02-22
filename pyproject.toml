@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aioeosabi"
-version = "0.1.0"
+version = "0.1.1"
 description = "Async library for interacting with EOS.io blockchain"
 authors = ["MajicGit"]
 license = "MIT"
@@ -14,7 +14,7 @@ python = "^3.8"
 aiohttp = "^3.3.1"
 base58 = "2.0.0"
 ecdsa = "^0.15"
-antelopy = "^0.1.6"
+antelopy = "^0.2.0"
 pycryptodome= "^3.20.0"
 
 [tool.poetry.dev-dependencies]
